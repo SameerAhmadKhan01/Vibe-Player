@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibe Player - Glassmorphic Local Music Hub</title>
     <!-- Google Fonts: Outfit for headers, Inter for system UI -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <!-- jsmediatags CDN for reading ID3/audio tags client-side -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
   </head>
@@ -23,15 +26,41 @@
     <!-- Main Container -->
     <main id="player-container">
       <!-- Hidden Folder Input -->
-      <input type="file" id="folder-input" webkitdirectory directory multiple accept="audio/*" class="hidden-input" />
+      <input
+        type="file"
+        id="folder-input"
+        webkitdirectory
+        directory
+        multiple
+        accept="audio/*"
+        class="hidden-input"
+      />
       <!-- Hidden File Input for individual files fallback -->
-      <input type="file" id="file-input" multiple accept="audio/*" class="hidden-input" />
+      <input
+        type="file"
+        id="file-input"
+        multiple
+        accept="audio/*"
+        class="hidden-input"
+      />
 
       <!-- Drag & Drop Overlay -->
       <div id="drop-overlay" class="drop-overlay">
         <div class="drop-overlay-content">
-          <svg class="icon" viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            width="64"
+            height="64"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+            />
           </svg>
           <h2>Drop your music folder or files here</h2>
           <p>We'll read your audio files directly in the browser</p>
@@ -40,13 +69,24 @@
 
       <!-- App Glassmorphic Frame -->
       <div id="app-frame" class="glass-panel">
-        
         <!-- SIDEBAR (Left Panel): Playlist & Folder controls -->
         <section class="panel-sidebar" id="panel-sidebar">
           <div class="sidebar-header">
             <div class="app-branding">
-              <svg class="logo-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 0v11.25m0-11.25L9 9.75M9 9.75v11.25m0-11.25L21 6.75M9 21a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z" />
+              <svg
+                class="logo-icon"
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 9l10.5-3m0 0v11.25m0-11.25L9 9.75M9 9.75v11.25m0-11.25L21 6.75M9 21a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z"
+                />
               </svg>
               <h1>Vibe<span>Player</span></h1>
             </div>
@@ -54,35 +94,87 @@
           </div>
 
           <div class="folder-loader-area">
-            <button id="btn-load-folder" class="btn btn-primary" title="Select folder from your device">
-              <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.31a1.5 1.5 0 01-1.062-.44z" />
+            <button
+              id="btn-load-folder"
+              class="btn btn-primary"
+              title="Select folder from your device"
+            >
+              <svg
+                class="btn-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.31a1.5 1.5 0 01-1.062-.44z"
+                />
               </svg>
               <span>Load Folder</span>
             </button>
-            <button id="btn-load-files" class="btn btn-secondary" title="Select individual files">
+            <button
+              id="btn-load-files"
+              class="btn btn-secondary"
+              title="Select individual files"
+            >
               <span>Select Files</span>
             </button>
           </div>
 
           <div class="search-box">
             <div class="search-input-wrapper">
-              <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z" />
+              <svg
+                class="search-icon"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z"
+                />
               </svg>
-              <input type="text" id="search-tracks" placeholder="Search playlist..." />
-              <button id="btn-clear-search" class="clear-search-btn hidden">×</button>
+              <input
+                type="text"
+                id="search-tracks"
+                placeholder="Search playlist..."
+              />
+              <button id="btn-clear-search" class="clear-search-btn hidden">
+                ×
+              </button>
             </div>
           </div>
 
           <!-- Playlist list -->
           <div class="playlist-container">
             <div id="playlist-empty" class="playlist-empty">
-              <svg class="empty-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                class="empty-icon"
+                viewBox="0 0 24 24"
+                width="48"
+                height="48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
               <p>No tracks loaded</p>
-              <span class="subtext">Select a folder or drag files here to start listening</span>
+              <span class="subtext"
+                >Select a folder or drag files here to start listening</span
+              >
             </div>
             <ul id="track-list" class="track-list hidden">
               <!-- Dynamically populated via JS -->
@@ -91,7 +183,13 @@
 
           <div class="sidebar-footer">
             <span id="playlist-count">0 tracks loaded</span>
-            <button id="btn-clear-playlist" class="btn-clear" title="Clear all tracks">Clear</button>
+            <button
+              id="btn-clear-playlist"
+              class="btn-clear"
+              title="Clear all tracks"
+            >
+              Clear
+            </button>
           </div>
         </section>
 
@@ -103,14 +201,81 @@
           <!-- Top bar with track path info or status -->
           <div class="player-top-bar">
             <div class="now-playing-label">NOW PLAYING</div>
-            <button id="btn-toggle-sidebar" class="mobile-toggle" title="Toggle Playlist">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+            <button
+              id="btn-toggle-sidebar"
+              class="mobile-toggle"
+              title="Toggle Playlist"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+                />
               </svg>
             </button>
-            <button id="btn-toggle-right-panel" class="mobile-toggle right-toggle" title="Toggle Controls">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+            <button
+              id="btn-toggle-right-panel"
+              class="mobile-toggle right-toggle"
+              title="Toggle Controls"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+                />
+              </svg>
+            </button>
+            <button
+              id="btn-theme-toggle"
+              class="mobile-toggle theme-toggle"
+              title="Toggle Theme"
+            >
+              <svg
+                id="icon-theme-light"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414M19.778 19.778l-1.414-1.414M7.05 7.05L5.636 5.636M12 7a5 5 0 100 10 5 5 0 000-10z"
+                />
+              </svg>
+              <svg
+                id="icon-theme-dark"
+                class="hidden"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+                />
               </svg>
             </button>
           </div>
@@ -124,10 +289,27 @@
             <div class="cover-art-container" id="cover-container">
               <div class="cover-art-wrapper" id="cover-wrapper">
                 <div class="cover-art-disc shadow-effect"></div>
-                <img id="cover-image" src="" alt="Album Cover" class="cover-image hidden" />
+                <img
+                  id="cover-image"
+                  src=""
+                  alt="Album Cover"
+                  class="cover-image hidden"
+                />
                 <div id="cover-placeholder" class="cover-placeholder">
-                  <svg class="placeholder-icon" viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 0v11.25m0-11.25L9 9.75M9 9.75v11.25m0-11.25L21 6.75M9 21a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    class="placeholder-icon"
+                    viewBox="0 0 24 24"
+                    width="64"
+                    height="64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 9l10.5-3m0 0v11.25m0-11.25L9 9.75M9 9.75v11.25m0-11.25L21 6.75M9 21a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
                 </div>
               </div>
@@ -139,7 +321,9 @@
             <div class="title-scroller">
               <h2 id="track-title" class="track-title">No Track Loaded</h2>
             </div>
-            <p id="track-artist" class="track-artist">Select a folder or file to begin playing music</p>
+            <p id="track-artist" class="track-artist">
+              Select a folder or file to begin playing music
+            </p>
             <p id="track-album" class="track-album"></p>
           </div>
 
@@ -149,7 +333,16 @@
             <div class="seek-controls">
               <span id="time-elapsed" class="time-label">0:00</span>
               <div class="slider-wrapper">
-                <input type="range" id="seek-bar" min="0" max="100" value="0" step="0.1" class="custom-slider" disabled />
+                <input
+                  type="range"
+                  id="seek-bar"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  class="custom-slider"
+                  disabled
+                />
                 <div class="progress-bar-fill" id="seek-progress-fill"></div>
               </div>
               <span id="time-total" class="time-label">0:00</span>
@@ -157,36 +350,102 @@
 
             <!-- Primary Action Buttons -->
             <div class="controls-row">
-              <button id="btn-shuffle" class="btn-control toggle-control" title="Toggle Shuffle">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
+              <button
+                id="btn-shuffle"
+                class="btn-control toggle-control"
+                title="Toggle Shuffle"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"
+                  />
                 </svg>
               </button>
 
               <button id="btn-prev" class="btn-control" title="Previous Song">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                  />
                 </svg>
               </button>
 
               <button id="btn-play-pause" class="btn-play-pause" title="Play">
-                <svg id="play-icon" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" class="play-svg">
+                <svg
+                  id="play-icon"
+                  viewBox="0 0 24 24"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="play-svg"
+                >
                   <path d="M8 5v14l11-7z" />
                 </svg>
-                <svg id="pause-icon" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" class="pause-svg hidden">
+                <svg
+                  id="pause-icon"
+                  viewBox="0 0 24 24"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="pause-svg hidden"
+                >
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               </button>
 
               <button id="btn-next" class="btn-control" title="Next Song">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
                 </svg>
               </button>
 
-              <button id="btn-repeat" class="btn-control toggle-control" title="Toggle Repeat (Off/All/One)">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3" />
+              <button
+                id="btn-repeat"
+                class="btn-control toggle-control"
+                title="Toggle Repeat (Off/All/One)"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3"
+                  />
                 </svg>
                 <span id="repeat-badge" class="repeat-badge hidden">1</span>
               </button>
@@ -196,23 +455,60 @@
             <div class="bottom-utility-row">
               <div class="volume-controls">
                 <button id="btn-volume" class="btn-volume" title="Mute/Unmute">
-                  <svg id="icon-volume-high" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                  <svg
+                    id="icon-volume-high"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
+                    />
                   </svg>
-                  <svg id="icon-volume-mute" class="hidden" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6L4.51 8.25H2.25v7.5h2.26l4.72 4.72c.383.383 1.02.112 1.02-.43V4.03c0-.542-.637-.813-1.02-.43L6.75 8.25z" />
+                  <svg
+                    id="icon-volume-mute"
+                    class="hidden"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6L4.51 8.25H2.25v7.5h2.26l4.72 4.72c.383.383 1.02.112 1.02-.43V4.03c0-.542-.637-.813-1.02-.43L6.75 8.25z"
+                    />
                   </svg>
                 </button>
                 <div class="slider-wrapper volume-slider-wrapper">
-                  <input type="range" id="volume-slider" min="0" max="1" value="0.7" step="0.01" class="custom-slider" />
-                  <div class="progress-bar-fill" id="volume-progress-fill"></div>
+                  <input
+                    type="range"
+                    id="volume-slider"
+                    min="0"
+                    max="1"
+                    value="0.7"
+                    step="0.01"
+                    class="custom-slider"
+                  />
+                  <div
+                    class="progress-bar-fill"
+                    id="volume-progress-fill"
+                  ></div>
                 </div>
               </div>
-              
-              <!-- Quick status output e.g. "Mp3 • 320kbps • 44.1kHz" -->
-              <div id="audio-spec" class="audio-spec-info">Stereo • 44.1kHz</div>
-            </div>
 
+              <!-- Quick status output e.g. "Mp3 • 320kbps • 44.1kHz" -->
+              <div id="audio-spec" class="audio-spec-info">
+                Stereo • 44.1kHz
+              </div>
+            </div>
           </div>
         </section>
 
@@ -231,30 +527,75 @@
                 <option value="treble">Treble Boost</option>
               </select>
             </div>
-            
+
             <div class="equalizer-grid">
               <div class="eq-slider-col">
-                <input type="range" id="eq-band-1" class="eq-slider" min="-12" max="12" value="0" step="0.5" orient="vertical" />
+                <input
+                  type="range"
+                  id="eq-band-1"
+                  class="eq-slider"
+                  min="-12"
+                  max="12"
+                  value="0"
+                  step="0.5"
+                  orient="vertical"
+                />
                 <span class="eq-label">60Hz</span>
                 <span class="eq-val" id="eq-val-1">0dB</span>
               </div>
               <div class="eq-slider-col">
-                <input type="range" id="eq-band-2" class="eq-slider" min="-12" max="12" value="0" step="0.5" orient="vertical" />
+                <input
+                  type="range"
+                  id="eq-band-2"
+                  class="eq-slider"
+                  min="-12"
+                  max="12"
+                  value="0"
+                  step="0.5"
+                  orient="vertical"
+                />
                 <span class="eq-label">230Hz</span>
                 <span class="eq-val" id="eq-val-2">0dB</span>
               </div>
               <div class="eq-slider-col">
-                <input type="range" id="eq-band-3" class="eq-slider" min="-12" max="12" value="0" step="0.5" orient="vertical" />
+                <input
+                  type="range"
+                  id="eq-band-3"
+                  class="eq-slider"
+                  min="-12"
+                  max="12"
+                  value="0"
+                  step="0.5"
+                  orient="vertical"
+                />
                 <span class="eq-label">910Hz</span>
                 <span class="eq-val" id="eq-val-3">0dB</span>
               </div>
               <div class="eq-slider-col">
-                <input type="range" id="eq-band-4" class="eq-slider" min="-12" max="12" value="0" step="0.5" orient="vertical" />
+                <input
+                  type="range"
+                  id="eq-band-4"
+                  class="eq-slider"
+                  min="-12"
+                  max="12"
+                  value="0"
+                  step="0.5"
+                  orient="vertical"
+                />
                 <span class="eq-label">4kHz</span>
                 <span class="eq-val" id="eq-val-4">0dB</span>
               </div>
               <div class="eq-slider-col">
-                <input type="range" id="eq-band-5" class="eq-slider" min="-12" max="12" value="0" step="0.5" orient="vertical" />
+                <input
+                  type="range"
+                  id="eq-band-5"
+                  class="eq-slider"
+                  min="-12"
+                  max="12"
+                  value="0"
+                  step="0.5"
+                  orient="vertical"
+                />
                 <span class="eq-label">14kHz</span>
                 <span class="eq-val" id="eq-val-5">0dB</span>
               </div>
@@ -286,17 +627,37 @@
           <div class="panel-section flex-grow">
             <h3 class="section-title">Track metadata</h3>
             <div id="metadata-inspector" class="metadata-inspector">
-              <div class="meta-row"><span class="meta-lbl">Filename:</span><span class="meta-val" id="meta-filename">-</span></div>
-              <div class="meta-row"><span class="meta-lbl">Title:</span><span class="meta-val" id="meta-title">-</span></div>
-              <div class="meta-row"><span class="meta-lbl">Artist:</span><span class="meta-val" id="meta-artist">-</span></div>
-              <div class="meta-row"><span class="meta-lbl">Album:</span><span class="meta-val" id="meta-album">-</span></div>
-              <div class="meta-row"><span class="meta-lbl">Year:</span><span class="meta-val" id="meta-year">-</span></div>
-              <div class="meta-row"><span class="meta-lbl">Genre:</span><span class="meta-val" id="meta-genre">-</span></div>
-              <div class="meta-row"><span class="meta-lbl">Size:</span><span class="meta-val" id="meta-size">-</span></div>
+              <div class="meta-row">
+                <span class="meta-lbl">Filename:</span
+                ><span class="meta-val" id="meta-filename">-</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Title:</span
+                ><span class="meta-val" id="meta-title">-</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Artist:</span
+                ><span class="meta-val" id="meta-artist">-</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Album:</span
+                ><span class="meta-val" id="meta-album">-</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Year:</span
+                ><span class="meta-val" id="meta-year">-</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Genre:</span
+                ><span class="meta-val" id="meta-genre">-</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-lbl">Size:</span
+                ><span class="meta-val" id="meta-size">-</span>
+              </div>
             </div>
           </div>
         </section>
-
       </div>
     </main>
 
